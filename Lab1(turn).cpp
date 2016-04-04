@@ -2,27 +2,27 @@
 #include <string>
 using namespace std;
 
-/* Класс-контейнер move типа очередь */
-class move
+/* Класс-контейнер turn типа очередь */
+class turn
 {
-    move* Next;
+    turn* Next;
     string Data;
 public:
-    move(): Next(nullptr), Data("") {};
+    turn(): Next(nullptr), Data("") {};
     void push(string data);
     void get();
     void pop();
-    ~move(){if(Next!= nullptr) delete Next;}
-}Move;
+    ~turn(){if(Next!= nullptr) delete Next;}
+}Turn;
 
 /* Добавляет в очередь новый элемент и помещает в него указанную информацию
  * @param data - информация, помещаемая в элемент стека
  */
-void move::push(string data)
+void turn::push(string data)
 {
     if(Next== nullptr)
         if(Data!="")
-            Next = new move();
+            Next = new turn();
     else
     {
         Data = data;
@@ -33,7 +33,7 @@ void move::push(string data)
 }
 
 /* Выводит информацию последнего(выходного) элемента очереди */
-void move::get()
+void turn::get()
 {
     if(Next== nullptr)
     {
@@ -46,7 +46,7 @@ void move::get()
 /* Возвращает содержимое последнего(выходного) элемента списка и удаляет его
  * @return - содержимое последнего(выходного) элемента списка
  */
-string move::pop()
+string turn::pop()
 {
 	string temp = Data;
     if(Next == nullptr)
@@ -69,12 +69,12 @@ int main()
         if(line=="add")
         {
             cin >> line;
-            Move.push(line);
+            Turn.push(line);
         }
         else if(line=="get")
-            Move.get();
+            Turn.get();
         else if(line=="del")
-            Move.pop();
+            Turn.pop();
         else
             return 1;
 
