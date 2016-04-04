@@ -3,22 +3,22 @@
 using namespace std;
 
 /* Класс-контейнер stack типа стэк */
-class stack
+class st
 {
-    stack* Next;
+    st* Next;
     string Data;
 public:
-    stack(): Next(nullptr), Data("") {};
+    st(): Next(nullptr), Data("") {};
     void push(string data);
     void get();
     string pop();
-    ~stack(){if(Next!= nullptr) delete Next;}
-}Stack;
+    ~st(){if(Next!= nullptr) delete Next;}
+}St;
 
 /* Добавляет в стек новый элемент и помещает в него указанную информацию
  * @param data - информация, помещаемая в элемент стека
  */
-void stack::push(string data)
+void st::push(string data)
 {
     if(Next== nullptr)
         if(Data!="")
@@ -33,7 +33,7 @@ void stack::push(string data)
 }
 
 /* Выводит информацию первого(верхнего) элемента стека */
-void stack::get()
+void st::get()
 {
     cout << Data << endl;
 }
@@ -41,7 +41,7 @@ void stack::get()
 /* Возвращает содержимое первого элемента стека и удаляет его
  * @return - содержимое первого(верхнего) элемента стека
  */
-string stack::pop()
+string st::pop()
 {
     string temp = Data;
     if(Next!= nullptr)
@@ -55,8 +55,8 @@ string stack::pop()
 
 int main()
 {
-    size_t n;       //Number of commands
-    string line;    //Command name
+    size_t n;
+    string line;
     cin >> n;
     for (size_t i = 0; i < n; i++)
     {
@@ -64,12 +64,12 @@ int main()
         if(line=="add")
         {
             cin >> line;
-            Stack.push(line);
+            St.push(line);
         }
         else if(line=="get")
-            Stack.get();
+            St.get();
         else if(line=="del")
-            Stack.pop();
+            St.pop();
         else
             return 1;
 
