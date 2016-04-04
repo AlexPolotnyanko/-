@@ -71,9 +71,9 @@ void list::del(int i)
 
 int main()
 {
-    size_t n;       //номер команды
-    int ind;        //индекс элемента
-    string line;    //имя команды
+    size_t n;
+    int ind;
+    string line;
     cin >> n;
     for (size_t i = 0; i < n; i++)
     {
